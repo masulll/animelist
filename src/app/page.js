@@ -1,40 +1,41 @@
 // "use client";
 import AnimeList from "@/components/AnimeList";
-import Link from "next/link";
+import Header from "@/components/AnimeList/header";
 
 const Home = async () => {
   // use & to more params
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=8`
   );
-  const anime = await response.json();
+  const topAnime = await response.json();
 
   return (
-    <div>
-      <div className="flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold">Paling Populer</h1>
-        <Link
-          href={"/popular"}
-          className="md:text-lg text-md font-regular hover:text-indigo-500 transition-all"
-        >
-          Lihat Semua➡️
-        </Link>
-      </div>
-      <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 px-4 ">
-        {anime.data.map((data) => {
-          return (
-            // BEST PRACTICE TO MAP DATA
-            <div key={data.mal_id} className="shadow-xl">
-              <AnimeList
-                title={data.title}
-                images={data.images.webp.image_url}
-                id={data.mal_id}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <>
+      <section>
+        <Header
+          title="Paling Populer"
+          linkTitle="Lihat Semua"
+          linkHref="/populer"
+        />
+        <AnimeList api={topAnime} />
+      </section>
+      <section>
+        <Header
+          title="Paling Baru"
+          linkTitle="Ikuti Sekarang"
+          linkHref="/new"
+        />
+        <AnimeList api={topAnime} />
+      </section>
+      <section>
+        <Header
+          title="Paling Rame"
+          linkTitle="Ikuti Sekarang"
+          linkHref="/rame"
+        />
+        <AnimeList api={topAnime} />
+      </section>
+    </>
   );
 };
 
