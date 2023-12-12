@@ -9,9 +9,12 @@ const InputSearch = () => {
   const router = useRouter();
 
   const handleSearch = (event) => {
+    const keyword = searchRef.current.value;
+    // validate search no blank space
+    if (!keyword || keyword < 1) return;
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
-      const keyword = searchRef.current.value;
+
       router.push(`/search/${keyword}`);
     }
   };
