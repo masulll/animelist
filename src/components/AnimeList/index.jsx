@@ -7,7 +7,7 @@ const AnimeList = ({ api }) => {
         return (
           <>
             <Link
-              href={`/${anime.mal_id}`}
+              href={`/anime/${anime.mal_id}`}
               key={index}
               className="cursor-pointer text-color-primary hover:text-color-accent transition-all bg-color-secondary"
             >
