@@ -3,10 +3,13 @@ import InputSearch from "./InputSearch";
 
 export const Navbar = () => {
   return (
-    <header className="bg bg-color-accent">
-      <div className="flex md:flex-row flex-col justify-between p-4 gap-2 md:items-center">
-        <Link href={"/"} className="font-bold  text-2xl">
-          CUYANIMELIST
+    <header className="bg bg-color-accent sticky top-0 z-50">
+      <div className="flex md:flex-row flex-col justify-between p-3 gap-2 md:items-center">
+        <Link
+          href={"/"}
+          className="font-bold text-color-warning text-3xl italic"
+        >
+          ANISCORE
         </Link>
         <InputSearch />
       </div>
