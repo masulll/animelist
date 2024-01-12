@@ -1,7 +1,7 @@
 // "use client";
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
-import { getAnimeResponse } from "@/app/libs/api-libs";
+import { getAnimeResponse } from "@/libs/api-libs";
 
 const Page = async ({ params }) => {
   // destruct params {keyword}

@@ -1,4 +1,4 @@
-import { getAnimeResponse } from "@/app/libs/api-libs";
+import { getAnimeResponse } from "@/libs/api-libs";
 import VideoPlayer from "@/components/utilities/VideoPlayer";
 import Image from "next/image";
 // how server component works
@@ -8,7 +8,7 @@ const page = async ({ params: { id } }) => {
   return (
     <>
       <div className="pt-4 px-4">
-        <h3 className="text-2xl text-color-primary">
+        <h3 className="text-2xl text-color-warning">
           {anime.data.title} - {anime.data.year}
         </h3>
       </div>

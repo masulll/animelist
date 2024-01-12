@@ -18,7 +18,7 @@ module.exports = {
           warning: "#ffc639",
           accent: "#0029ff",
           secondary: "#182b3c",
-          dark: "#2c2535",
+          dark: "#111827",
         },
       },
     },
