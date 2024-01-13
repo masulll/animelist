@@ -11,5 +11,20 @@ export const getNestedAnimeResponse = async (resource, objectProperty) => {
   //   resource
   const response = await getAnimeResponse(resource);
 
-  return response.data.flatMap((item) => item.entry);
+  return response.data.flatMap((item) => item[objectProperty]);
+};
+
+export const reproduce = (data, gap) => {
+  const first = ~~(Math.random() * (data.length - gap));
+  const last = first + gap;
+
+  // cara lama
+  // for (let i = data.length - 1; i > 0; i--) {
+  //   const j = Math.floor(Math.random() * (i + 1));
+  //   [data[i], data[j]] = [data[j], data[i]];
+  // }
+  // const response = { data: data.slice(0, 4) };
+
+  const response = { data: data.slice(first, last) };
+  return response;
 };

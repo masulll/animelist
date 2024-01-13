@@ -1,6 +1,6 @@
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
-import { getAnimeResponse } from "@/libs/api-libs";
+import { getAnimeResponse, reproduce } from "@/libs/api-libs";
 import { getNestedAnimeResponse } from "@/libs/api-libs";
 
 const Page = async () => {
@@ -10,17 +10,8 @@ const Page = async () => {
     "entry"
   );
 
-  const shuffle = (arr) => {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  };
-
-  shuffle(recommendedAnime);
-  recommendedAnime = { data: recommendedAnime.slice(0, 4) };
-  console.log(recommendedAnime);
+  recommendedAnime = await reproduce(recommendedAnime, 4);
+  // console.log(recommendedAnime);
   return (
     <>
       <section>
