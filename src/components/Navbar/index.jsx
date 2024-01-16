@@ -1,5 +1,6 @@
 import Link from "next/link";
 import InputSearch from "./InputSearch";
+import UserActionButton from "./UserActionButton";
 
 export const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ export const Navbar = () => {
           ANISCORE
         </Link>
         <InputSearch />
+        <UserActionButton />
       </div>
     </header>
   );
