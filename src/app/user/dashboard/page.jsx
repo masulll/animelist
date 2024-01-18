@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 const page = async () => {
   const user = await authUserSession();
-  if (!user) redirect("/");
 
   return (
     <div className="text-color-primary">
