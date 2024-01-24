@@ -12,12 +12,15 @@ const Page = async () => {
 
   recommendedAnime = await reproduce(recommendedAnime, 4);
   // console.log(recommendedAnime);
+
+  let seasonsAnime = await getAnimeResponse("seasons/now", "limit=8");
+
   return (
     <>
       <section>
         <Header
-          title="Paling Populer"
-          linkTitle="Lihat Semua"
+          title="Most Popular"
+          linkTitle="Look More..."
           linkHref="/populer"
         />
         <AnimeList api={topAnime} />
@@ -28,11 +31,11 @@ const Page = async () => {
       </section>
       <section>
         <Header
-          title="Paling Rame"
-          linkTitle="Ikuti Sekarang"
-          linkHref="/rame"
+          title="Coming this season"
+          linkTitle="Follow More..."
+          linkHref="/currentseason"
         />
-        <AnimeList api={topAnime} />
+        <AnimeList api={seasonsAnime} />
       </section>
     </>
   );
