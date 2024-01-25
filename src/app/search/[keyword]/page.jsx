@@ -9,13 +9,16 @@ const Page = async ({ params }) => {
   const decodeKeyword = decodeURI(keyword);
   console.log(keyword);
 
-  const searchAnime = await getAnimeResponse("anime", `q=${decodeKeyword}`);
+  const searchAnime = await getAnimeResponse(
+    "anime",
+    `q=${decodeKeyword}&sfw=true`
+  );
 
   return (
     <>
       <section>
         <Header
-          title={`Pencarian untuk ${decodeKeyword}...`}
+          title={`Search for ${decodeKeyword}...`}
           linkTitle=""
           linkHref=""
         />

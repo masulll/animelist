@@ -21,7 +21,7 @@ const Page = () => {
 
   return (
     <>
-      <HeaderMenu title={`ANIME TERPOPULER #${page}`} />
+      <HeaderMenu title={`THIS SEASON ANIME  #${page}`} />
       <div>
         <AnimeList api={seasonsAnime} />
       </div>

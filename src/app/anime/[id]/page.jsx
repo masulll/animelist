@@ -1,13 +1,16 @@
 import { getAnimeResponse } from "@/libs/api-libs";
 import VideoPlayer from "@/components/utilities/VideoPlayer";
 import Image from "next/image";
+import Header from "@/components/AnimeId/Header";
+
 // how server component works
 const page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`);
 
   return (
     <>
-      <div className="pt-4 px-4">
+      <div className="pt-4 px-4 flex flex-row">
+        <Header />
         <h3 className="text-2xl text-color-warning">
           {anime.data.title} - {anime.data.year}
         </h3>

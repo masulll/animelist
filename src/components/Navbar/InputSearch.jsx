@@ -22,7 +22,7 @@ const InputSearch = () => {
   return (
     <div className="relative ">
       <input
-        placeholder="cari anime apa"
+        placeholder="Search"
         className="w-full p-2 rounded-xl text-color-primary placeholder:text-color-primary bg-color-accent  focus:outline-1 outline-slate-50 border "
         ref={searchRef}
         onKeyDown={handleSearch}

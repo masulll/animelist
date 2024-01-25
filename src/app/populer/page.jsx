@@ -21,7 +21,7 @@ const Page = () => {
 
   return (
     <>
-      <HeaderMenu title={`ANIME TERPOPULER #${page}`} />
+      <HeaderMenu title={`POPULAR ANIME #${page}`} />
       <div>
         <AnimeList api={topAnime} />
       </div>
