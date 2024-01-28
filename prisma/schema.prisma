@@ -9,3 +9,14 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Collection{
+  id             Int @id @default(autoincrement())
+  mal_id         String
+  user_email     String
+  anime_img      String?
+  anime_title    String?
+
+// one to many with condition every mal id is unique
+  @@unique([user_email, mal_id])
+}
