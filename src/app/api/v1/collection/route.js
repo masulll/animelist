@@ -16,12 +16,25 @@ export async function DELETE(request) {
   const { id } = await request.json();
   const data = { id };
 
-  const createCollection = await prisma.collection.delete({
+  const deleteCollection = await prisma.collection.delete({
     where: {
       id: data.id,
     },
   });
-  if (!createCollection)
-    return Response.json({ status: 500, isCreated: false });
-  else return console.error("error deleting", error);
+  if (!deleteCollection)
+    return Response.json(
+      { status: 500, isDeletedted: false },
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 500,
+      }
+    );
+  else
+    return Response.json(
+      { status: 200, isDeleted: true },
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 200,
+      }
+    );
 }

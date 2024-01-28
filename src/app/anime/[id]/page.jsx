@@ -23,7 +23,7 @@ const page = async ({ params: { id } }) => {
         </h3>
       </div>
       <div className="pt-1 px-4 ">
-        {!collection && user && (
+        {user && (
           <CollectionButton
             user_email={user?.email}
             mal_id={id}
