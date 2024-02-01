@@ -5,6 +5,8 @@ import Header from "@/components/AnimeId/Header";
 import CollectionButton from "@/components/AnimeList/CollectionButton";
 import { authUserSession } from "@/libs/auth-libs";
 import prisma from "@/libs/prisma";
+import CommentInput from "@/components/AnimeList/CommentInput";
+import CommentBox from "@/components/AnimeList/CommentBox";
 
 // how server component works
 const page = async ({ params: { id } }) => {
@@ -60,6 +62,17 @@ const page = async ({ params: { id } }) => {
           className="w-full rounded object-cover"
         />
         <p className="text-justify text-xl">{anime.data.synopsis}</p>
+      </div>
+      <div className="p-4">
+        {user && (
+          <CommentInput
+            mal_id={id}
+            anime_title={anime.data.title}
+            user_email={user?.email}
+            username={user?.name}
+          />
+        )}
+        <CommentBox mal_id={id} />
       </div>
       <div>
         <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
