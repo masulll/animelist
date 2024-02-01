@@ -20,3 +20,11 @@ model Collection{
 // one to many with condition every mal id is unique
   @@unique([user_email, mal_id])
 }
+
+model Comment{
+  id             Int @id @default(autoincrement())
+  mal_id         String
+  user_email     String
+  comment        String
+  username       String
+}
